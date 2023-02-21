@@ -18,10 +18,13 @@ function createNav(options){
     });
     nav.appendChild(listUl);
     
-    setClickEvent('menu',loadMenu);
+    //setClickEvent('menu',loadMenu);
     
+    const header = document.querySelector('header');
+    header.appendChild(nav);
 
-    return nav;
+    setClickEvent('menu',loadMenu);
+    //return nav;
 }
 function createHeader(){
     const header = document.createElement('header');
@@ -40,10 +43,9 @@ function createMain(){
 }
 function loadWebsite(){
     const body = document.querySelector('body');
-    const nav = createNav(["Home","Menu","Contactanos"]);
     const header = createHeader();
-    header.appendChild(nav);
     body.appendChild(header);
+    createNav(["home","menu","contactanos"]);
     body.appendChild(createMain());   
 }
 export default loadWebsite;
