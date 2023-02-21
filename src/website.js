@@ -32,5 +32,7 @@ function createHeader(){
 }
 
 function createMain(){
-     
+    const main = document.createElement('main');
+    main.setAttribute('id','main');
+    return main;
 }
