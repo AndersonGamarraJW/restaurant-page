@@ -33,6 +33,11 @@ function createHeader(){
 
 function createMain(){
     const main = document.createElement('main');
+    const contentDiv = document.getElementById('content');
     main.setAttribute('id','main');
+    main.appendChild(contentDiv);
     return main;
+}
+function loadWebsite(){
+    const body = document;
 }
