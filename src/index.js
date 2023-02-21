@@ -1,1 +1,2 @@
-console.log('webpack start');
+import loadWebsite from "./website.js";
+loadWebsite();

@@ -39,5 +39,11 @@ function createMain(){
     return main;
 }
 function loadWebsite(){
-    const body = document;
+    const body = document.querySelector('body');
+    const nav = createNav(["Home","Menu","Contactanos"]);
+    const header = createHeader();
+    header.appendChild(nav);
+    body.appendChild(header);
+    body.appendChild(createMain());   
 }
+export default loadWebsite;
