@@ -1,51 +1,56 @@
 import loadMenu from "./menu.js";
+import loadContact from "./contact.js";
+import loadHome from "./home.js";
 
-function setClickEvent(id,event){
+function setClickEvent(id,loadSection){
     const element = document.getElementById(id);
-    element.addEventListener('click',event);
+    element.addEventListener('click',loadSection);
 }
-function createNav(options){
+function loadNav(options){
     const nav = document.createElement('nav');
     const listUl = document.createElement('ul');
     options.forEach(option => {
         const li = document.createElement('li');
-        li.setAttribute('id',option);
         const a = document.createElement('a');
-        
+        li.setAttribute('id',option);
         a.textContent = option;
         li.appendChild(a);
         listUl.appendChild(li);
     });
     nav.appendChild(listUl);
     
-    //setClickEvent('menu',loadMenu);
     
+    //nav add to header
     const header = document.querySelector('header');
     header.appendChild(nav);
 
+    //set events
     setClickEvent('menu',loadMenu);
-    //return nav;
+    setClickEvent('contact',loadContact);
+    setClickEvent('home',loadHome);
 }
-function createHeader(){
+function loadHeader(){
     const header = document.createElement('header');
     const title = document.createElement('h1');
     title.textContent = "Peruvian Restaurant";
     header.appendChild(title);
-    return header;
+    
+    //header add to body
+    document.body.appendChild(header);
 }
 
-function createMain(){
+function loadMain(){
     const main = document.createElement('main');
     const contentDiv = document.getElementById('content');
     main.setAttribute('id','main');
     main.appendChild(contentDiv);
-    return main;
+    
+    //main add to body
+    document.body.appendChild(main);
 }
 function loadWebsite(){
-    const body = document.querySelector('body');
-    const header = createHeader();
-    body.appendChild(header);
-    createNav(["home","menu","contactanos"]);
-    body.appendChild(createMain());   
+    loadHeader();
+    loadNav(["home","menu","contact"]);
+    loadMain();
 }
 export default loadWebsite;
